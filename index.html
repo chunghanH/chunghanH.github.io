@@ -3,6 +3,16 @@
 <title>chunghanH</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <meta id="charset" charset="utf-8">
+
+<meta property="al:android:url" content="intent://{'status' : '0', 'goodsUrl' : 'https://m.momoshop.com.tw/goods.momo?i_code=%i_code%'}">
+<meta property="al:android:package" content="com.momo.mobile.shoppingv2.android">
+<meta property="al:android:app_name" content="MomO購物網">
+
+<meta property="al:ios:url" content="momo.app://momoshop?status=0&goodsUrl=https://m.momoshop.com.tw/goods.momo?i_code=%i_code%">
+<meta property="al:ios:app_store_id" content="861796017" />
+<meta property="al:ios:app_name" content="moMO購物網" />
+
+<meta property="al:web:should_fallback" content="false" />
 <script id="metaGenrator">
   Object.prototype.isNotEmpty = function(){
     for(var key in this){
@@ -26,31 +36,30 @@
   }
 
   if(params.isNotEmpty()){
-    var elements = '';
-    elements += "<meta property='al:android:url' content='intent://{&#39status&#39 : &#390&#39, &#39goodsUrl&#39 : &#39https://m.momoshop.com.tw/goods.momo?i_code=" + params['i_code'] + "}&#39>";
-    elements += "<meta property='al:android:package' content='com.momo.mobile.shoppingv2.android'>";
-    elements += "<meta property='al:android:app_name' content='MomO購物網'>";
-    elements += "<meta property='al:ios:url' content='momo.app://momoshop?status=0&goodsUrl=https://m.momoshop.com.tw/goods.momo?i_code=" + params['i_code'] + "'>";
-    elements += "<meta property='al:ios:app_store_id' content='861796017' />";
-    elements += "<meta property='al:ios:app_name' content='moMO購物網'' />";
-    elements += "<meta property='al:web:should_fallback' content='false' />";
+    var android_url_schema = $('meta[property="al:android:url"]').attr('content');
+    var ios_url_schema = $('meta[property="al:ios:url"]').attr('content');
 
-    $(elements).insertAfter($('#metaGenrator'));
+    android_url_schema = android_url_schema.replace('%i_code%', params['i_code']);
+    ios_url_schema = ios_url_schema.replace('%i_code%', params['i_code']);
+
+    $('meta[property="al:android:url"]').attr('content', android_url_schema);
+    $('meta[property="al:ios:url"]').attr('content', ios_url_schema);
+
+    // var elements = '';
+    // elements += '<meta property="al:android:url" content="intent://{&apos;status&apos; : &apos;0&apos;, &apos;goodsUrl&apos; : &apos;https://m.momoshop.com.tw/goods.momo?i_code=' + params['i_code'] + '}&apos;>';
+    // elements += '<meta property="al:android:package" content="com.momo.mobile.shoppingv2.android">';
+    // elements += '<meta property="al:android:app_name" content="MomO購物網">';
+    // elements += '<meta property="al:ios:url" content="momo.app://momoshop?status=0&goodsUrl=https://m.momoshop.com.tw/goods.momo?i_code=' + params['i_code'] + '>';
+    // elements += '<meta property="al:ios:app_store_id" content="861796017" />';
+    // elements += '<meta property="al:ios:app_name" content="moMO購物網" />';
+    // elements += '<meta property="al:web:should_fallback" content="false" />';
+
+    // $(elements).insertAfter($('#metaGenrator'));
 
   }
 
 </script>
-<!-- 
-<meta property="al:android:url" content="intent://{'status' : '0', 'goodsUrl' : 'https://m.momoshop.com.tw/goods.momo?i_code=%i_code%'}">
-<meta property="al:android:package" content="com.momo.mobile.shoppingv2.android">
-<meta property="al:android:app_name" content="MomO購物網">
 
-<meta property="al:ios:url" content="momo.app://momoshop?status=0&goodsUrl=https://m.momoshop.com.tw/goods.momo?i_code=%i_code%">
-<meta property="al:ios:app_store_id" content="861796017" />
-<meta property="al:ios:app_name" content="moMO購物網" />
-
-<meta property="al:web:should_fallback" content="false" />
--->
 </head>
 <body>
 <h1>chunghanH's Git Pages</h1>
