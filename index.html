@@ -3,7 +3,7 @@
 <title>chunghanH</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <meta id="charset" charset="utf-8">
-<script>
+<script id="metaGenrator">
   Object.prototype.isNotEmpty = function(){
     for(var key in this){
       if(this.hasOwnProperty(key)){
@@ -35,8 +35,7 @@
     elements += "<meta property='al:ios:app_name' content='moMO購物網'' />";
     elements += "<meta property='al:web:should_fallback' content='false' />";
 
-    var charset = $('#charset');
-    $(elements).insertBefore(charset);
+    $(elements).insertAfter($('#metaGenrator'));
 
   }
 
