@@ -14,36 +14,36 @@
 
 <meta property="al:web:should_fallback" content="false" />
 <script id="metaGenrator">
-  Object.prototype.isNotEmpty = function(){
-    for(var key in this){
-      if(this.hasOwnProperty(key)){
-      	return true;
-      }
-    }
-    return false;
-  };
+ //  Object.prototype.isNotEmpty = function(){
+ //    for(var key in this){
+ //      if(this.hasOwnProperty(key)){
+ //      	return true;
+ //      }
+ //    }
+ //    return false;
+ //  };
 
-  var params = new Object();
-  var rawParams = window.location.search;
-  if(rawParams.length > 0){
-    rawParams = rawParams.replace('?', '');
-    var paramsArray = rawParams.split('&');
-	for(var i = 0; i < paramsArray.length; i++){
-	  var currentParam = paramsArray[i].split('=');
-	  params[currentParam[0]] = currentParam[1];
-	  console.log('i = ' + i + ' key:' + currentParam[0] + ' value:' + currentParam[1]); 
-	}
-  }
+ //  var params = new Object();
+ //  var rawParams = window.location.search;
+ //  if(rawParams.length > 0){
+ //    rawParams = rawParams.replace('?', '');
+ //    var paramsArray = rawParams.split('&');
+	// for(var i = 0; i < paramsArray.length; i++){
+	//   var currentParam = paramsArray[i].split('=');
+	//   params[currentParam[0]] = currentParam[1];
+	//   console.log('i = ' + i + ' key:' + currentParam[0] + ' value:' + currentParam[1]); 
+	// }
+ //  }
 
-  if(params.isNotEmpty()){
-    var android_url_schema = $('meta[property="al:android:url"]').attr('content');
-    var ios_url_schema = $('meta[property="al:ios:url"]').attr('content');
+ //  if(params.isNotEmpty()){
+ //    var android_url_schema = $('meta[property="al:android:url"]').attr('content');
+ //    var ios_url_schema = $('meta[property="al:ios:url"]').attr('content');
 
-    android_url_schema = android_url_schema.replace('%i_code%', params['i_code']);
-    ios_url_schema = ios_url_schema.replace('%i_code%', params['i_code']);
+ //    android_url_schema = android_url_schema.replace('%i_code%', params['i_code']);
+ //    ios_url_schema = ios_url_schema.replace('%i_code%', params['i_code']);
 
-    $('meta[property="al:android:url"]').attr('content', android_url_schema);
-    $('meta[property="al:ios:url"]').attr('content', ios_url_schema);
+ //    $('meta[property="al:android:url"]').attr('content', android_url_schema);
+ //    $('meta[property="al:ios:url"]').attr('content', ios_url_schema);
 
     // var elements = '';
     // elements += '<meta property="al:android:url" content="intent://{&apos;status&apos; : &apos;0&apos;, &apos;goodsUrl&apos; : &apos;https://m.momoshop.com.tw/goods.momo?i_code=' + params['i_code'] + '}&apos;>';
