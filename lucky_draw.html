@@ -26,13 +26,12 @@ function draw(){
   var peopleCount = document.getElementById('peopleCount');
 
   if(validate(peopleCount)){
-    var count = Math.floor((Math.random() * peopleCount) + 1);
     var a = new Array();
-    for(var i=0; i < count; i++){
+    for(var i=0; i < peopleCount; i++){
       a.push(i);
     }
     for(var i=0; i < 1000; i++){
-      var j = Math.floor(Math.random() * (i + 1));
+      var j = Math.floor(Math.random() * (peopleCount - 1 ) + 1));
       var tmp = a[i];
       a[i] = a[j];
       a[j] = tmp;
