@@ -8,7 +8,6 @@
 <div class="container">
 <h1>交換禮物囉！！！<h1>
 <input type="text" class="form-control" id="peopleCount">
-<p id="result"></p>
 <button type="button" class="btn btn-danger btn-lg" id="draw">GO</button>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -38,7 +37,7 @@ document.getElementById('draw').onclick = function(){
     for(var i=0; i < a.length; i++){
      str+= (i+1) + ' : ' + (a[i]+1) + '\n';
     }
-    document.getElementById('result').textContent = '結果\n' + str;
+    alert('結果\n' + str);
   }
 };  
   
