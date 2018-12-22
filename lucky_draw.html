@@ -23,14 +23,16 @@ document.getElementById('draw').onclick = function(){
       a.push(i);
     }
     
-    for(var i = 0; i < 1000; i++){
-      var j = Math.floor(Math.random() * peopleCount);
-      var k = Math.floor(Math.random() * peopleCount);
-      if(j != k){
-        a[j] = a[k];
-      } else {
-        continue;
-      }   
+    for(var i = 0; i < peopleCount; i++){
+      var tmp = a[i];
+      while(true){
+        var j = Math.floor(Math.random() * peopleCount);
+        if(i != a[j]){
+          a[i] = a[j];
+          a[j] = tmp;
+          break;
+        }
+      }
     }
     
     var str = '';
