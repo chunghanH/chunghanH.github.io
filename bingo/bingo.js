@@ -2,8 +2,17 @@ var results = new Array();
 var count = 0;
 var animateTime = 2000;
 var numbers = 75;
+var audio;
 $(document).ready(function(){
   init();
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'drum.mp3', true);
+  xhr.responseType = 'blob';
+  audio = document.querySelector('audio');
+  xhr.onload = function () {
+      audio.src = URL.createObjectURL(xhr.response);  
+  };
+
   $('#draw').unbind().on('click', function(){
     animate(draw);
   });
@@ -39,7 +48,6 @@ function draw(){
 }
 
 function animate(go){
-  var audio = new Audio('drum.mp3');
   audio.play();
 
   var animation = setInterval(function(){
