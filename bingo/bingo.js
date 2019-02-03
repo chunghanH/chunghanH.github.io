@@ -39,7 +39,7 @@ function draw(){
 }
 
 function animate(go){
-  var audio = new Audio('drum.mp3');
+  var audio = new Audio('https://drive.google.com/file/d/1ZngszRoXP9Ix5hkcHaFVIl4FP5nYWyfH/view?usp=sharing');
   audio.play();
 
   var animation = setInterval(function(){
