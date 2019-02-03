@@ -1,6 +1,6 @@
 var results = new Array();
 var count = 0;
-var animateTime = 2000;
+var animateTime = 2700;
 var numbers = 75;
 var audio;
 $(document).ready(function(){
