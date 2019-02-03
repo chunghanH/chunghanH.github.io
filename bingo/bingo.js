@@ -12,7 +12,7 @@ $(document).ready(function(){
   xhr.onload = function () {
       audio.src = URL.createObjectURL(xhr.response);  
   };
-
+  xhr.send();
   $('#draw').unbind().on('click', function(){
     animate(draw);
   });
