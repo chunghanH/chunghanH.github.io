@@ -1,6 +1,6 @@
 var results = new Array();
 var count = 0;
-var animateTime = 3000;
+var animateTime = 2700;
 var numbers = 75;
 $(document).ready(function(){
   init();
@@ -39,6 +39,9 @@ function draw(){
 }
 
 function animate(go){
+  var audio = new Audio('drum.mp3');
+  audio.play();
+
   var animation = setInterval(function(){
     $('.result').text(Math.floor(Math.random() * numbers) + 1);
   }, 100);
