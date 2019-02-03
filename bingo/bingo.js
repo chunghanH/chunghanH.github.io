@@ -6,7 +6,7 @@ var audio;
 $(document).ready(function(){
   init();
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'drum.mp3', true);
+  xhr.open('GET', 'https://chunghanh.github.io/bingo/drum.mp3', true);
   xhr.responseType = 'blob';
   audio = document.querySelector('audio');
   xhr.onload = function () {
