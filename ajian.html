@@ -18,7 +18,7 @@ timer = setInterval(function(){
   if(deadLine < currentTime){
     clearInterval(timer);
     document.querySelector('#text').innerHtml = '阿建放榜囉!!!';
-    document.querySelector('#link').setAtrribute('style', '');
+    document.querySelector('#link').setAttribute('style', '');
   } else {
     var leftSecs = deadLine - currentTime;
     var h = Math.floor(leftSecs % (1000 * 3600 * 24) / (1000 * 60 * 60));
