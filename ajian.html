@@ -2,7 +2,22 @@
 <title>阿建消防放榜</title>
 <head>
 <script>
-
+var timer = null;
+var deadLine = 1566462000000 ;
+timer = setInterval(function(){
+  var currentTime = new Date().getTime();
+  if(deadLine < currentTime){
+    clearInterval(timer);
+    document.querySelector('h1').innerHtml = '放榜囉!!!';
+    document.querySelector('a').setAtrribute('style', '');
+  } else {
+    var leftSecs = deadLine - currentTime;
+    var h = new Date(leftSecs).getHours();
+    var m = new Date(leftSecs).getMinutes();
+    var s = new Date(leftSecs).getSeconds();
+    document.querySelector('h1').innerHtml = '距離放榜還有 ' + h + ' 小時 ' + m + ' 分鐘 ' + s + ' 秒';
+  }  
+}, 1000);
 
 </script>
 </head>
