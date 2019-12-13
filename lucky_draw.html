@@ -27,7 +27,7 @@ document.getElementById('draw').onclick = function(){
       var tmp = a[i];
       while(true){
         var j = Math.floor(Math.random() * peopleCount);
-        if(i != a[j]){
+        if(a[i] != a[j]){
           a[i] = a[j];
           a[j] = tmp;
           break;
@@ -47,6 +47,10 @@ function validate(count){
   var re = /^[0-9]*$/;
   if(!re.test(count)){
     alert('請輸入數字');
+    return false;
+  }
+  if(count == '1'){
+    alert('幹你沒朋友');
     return false;
   }
   return true;
