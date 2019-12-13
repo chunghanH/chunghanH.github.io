@@ -23,15 +23,25 @@ document.getElementById('draw').onclick = function(){
       a.push(i);
     }
     
-    for(var i = 0; i < peopleCount; i++){
-      var tmp = a[i];
-      while(true){
-        var j = Math.floor(Math.random() * peopleCount);
-        if(a[i] != a[j]){
-          a[i] = a[j];
-          a[j] = tmp;
-          break;
+    var s = true;
+    while(s){
+      for(var i = 0; i < peopleCount; i++){
+        var n1 = Math.floor(Math.random() * peopleCount);
+        var n2 = Math.floor(Math.random() * peopleCount);
+        var tmp = a[n1];         
+        a[n1] = a[n2];       
+        a[n2] = tmp;        
+      }
+      
+      var isNotRepeated = true;
+      for(var i = 0; i < a.length; i++){
+        if((i+1) == a[i]) {
+           isNotRepeated = false;
         }
+      }
+      
+      if(isNotRepeated) {
+         s = false;
       }
     }
     
