@@ -1,0 +1,30 @@
+<script>
+var alphabet = {
+  "日": "A", "月": "B", "金": "C", "木": "D",
+  "水": "E", "火": "F", "土": "G", "竹": "H",
+  "戈": "I", "十": "J", "大": "K", "中": "L",
+  "一": "M", "弓": "N", "人": "O", "心": "P",
+  "手": "Q", "口": "R", "尸": "S", "廿": "T",
+  "山": "U", "女": "V", "田": "W", "卜": "Y"
+}
+
+while(true) {
+  var keys = Object.keys(alphabet);
+  var index = Math.floor(Math.random() * keys.length);
+  var question = keys[index]
+  var answer = alphabet[question];
+  
+  var inputText = prompt(question);
+  inputText = inputText.toUpperCase();
+  if(inputText == 'exit' || inputText == null) {
+    alert('Bye');
+    break;
+  } else if(inputText == answer) {
+    alert('Correct!');
+  }
+else {
+    alert('Wrong! It\'s ' + answer);
+  } 
+}
+
+</script>
