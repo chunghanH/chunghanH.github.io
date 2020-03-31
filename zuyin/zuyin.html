@@ -18,10 +18,11 @@ function practise() {
 	"ㄝ": ",", "ㄡ": ".", "ㄥ": "/"
   }
   
-  alert('鍵盤注音了解程度測試，請輸入對應注音的英文或符號如:-;,./，共100題');
   var score = 0;
-  var examinations = 100;
-  var examinationScore = 100 / examinations;
+  var examinations = 20;
+  var eachExaminationScore = 100 / examinations;
+  
+  alert('鍵盤注音了解程度測試，請輸入對應注音的英文或符號如:-;,./，共' + examinations + '題');
   
   for(var i = 0; i < examinations; i++) {
     var keys = Object.keys(alphabet);
@@ -36,7 +37,7 @@ function practise() {
       break;
     } else if(inputText == answer) {
       alert('*** 答對: ' + question + ' = ' +  answer + ' ***');
-	  score += examinationScore;
+	  score += eachExaminationScore;
     } else {
       alert('答錯 是 ' + answer);
     } 
