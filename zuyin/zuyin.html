@@ -1,35 +1,49 @@
 <html>
 <head>
+<style>
+  button {
+    font-size:100px;
+  }
+</style>
 </head>
 <body>
-<button style="font-size:150px;" onclick="practise();">再考一次</button>
+
+<button id="refresh">重新整理</button><br>
+<button id="again">再考一次</button>
 <script>
-function practise() {
-  var alphabet = {
+
+var Zuyin = (function() {
+  function refresh(){
+    var currentURL = window.location.protocol + '//' + window.location.pathname;
+    window.location = currentURL + '?ts=' + new Date().getTime()
+  }
+
+  function start() {
+    var alphabet = {
     "ㄇ": "A", "ㄖ": "B", "ㄏ": "C", "ㄎ": "D",
     "ㄍ": "E", "ㄑ": "F", "ㄕ": "G", "ㄘ": "H",
     "ㄛ": "I", "ㄨ": "J", "ㄜ": "K", "ㄠ": "L",
     "ㄩ": "M", "ㄙ": "N", "ㄟ": "O", "ㄣ": "P",
     "ㄆ": "Q", "ㄐ": "R", "ㄋ": "S", "ㄔ": "T",
     "一": "U", "ㄒ": "V", "ㄊ": "W", "ㄗ": "Y",
-	"ㄅ": "1", "ㄉ": "2", "ˇ 三聲 ": "3", "ˋ 四聲": "4",
-	"ㄓ": "5", "ˊ 二聲": "6", "˙ 輕聲": "7", "ㄚ": "8",
-	"ㄞ": "9", "ㄢ": "0", "ㄦ": "-", "ㄤ": ";",
-	"ㄝ": ",", "ㄡ": ".", "ㄥ": "/"
-  }
-  
-  var score = 0;
-  var examinations = 20;
-  var eachExaminationScore = 100 / examinations;
-  
-  alert('鍵盤注音了解程度測試，請輸入對應注音的英文或符號如:-;,./，共' + examinations + '題');
-  
-  for(var i = 0; i < examinations; i++) {
+    "ㄅ": "1", "ㄉ": "2", "ˇ 三聲 ": "3", "ˋ 四聲": "4",
+    "ㄓ": "5", "ˊ 二聲": "6", "˙ 輕聲": "7", "ㄚ": "8",
+    "ㄞ": "9", "ㄢ": "0", "ㄦ": "-", "ㄤ": ";",
+    "ㄝ": ",", "ㄡ": ".", "ㄥ": "/"
+    }
+    
+    var score = 0;
+    var examinations = 20;
+    var eachExaminationScore = 100 / examinations;
+    
+    alert('鍵盤注音了解程度測試，請輸入對應注音的英文或符號如:-;,./，共' + examinations + '題');
+    
+    for(var i = 0; i < examinations; i++) {
     var keys = Object.keys(alphabet);
     var index = Math.floor(Math.random() * keys.length);
     var question = keys[index]
     var answer = alphabet[question];
-  
+    
     var inputText = prompt(question);
     inputText = inputText.toUpperCase().trim();
     if(inputText == 'exit' || inputText == null) {
@@ -37,16 +51,32 @@ function practise() {
       break;
     } else if(inputText == answer) {
       alert('*** 答對: ' + question + ' = ' +  answer + ' ***');
-	  score += eachExaminationScore;
+      score += eachExaminationScore;
     } else {
       alert('答錯 是 ' + answer);
     } 
+    }
+    
+    alert('共計' + parseInt(score, 10) + '分');
   }
   
-  alert('共計' + parseInt(score, 10) + '分');
-}
+  return {
+    start: start,
+    refresh: refresh
+  };
+}());
 
-practise();
+
+document.getElementById('refresh').addEventListener('click', function() {
+  Zuyin.refresh();
+}, false);
+
+document.getElementById('again').addEventListener('click', function() {
+  Zuyin.start();
+}, false);
+
+Zuyin.start();
+
 </script>
 </body>
 </html>
