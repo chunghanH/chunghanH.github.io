@@ -1,3 +1,8 @@
+<html>
+<head>
+</head>
+<body>
+<button style="font-size:150px;" onclick="practise();">再考一次</button>
 <script>
 function practise() {
   var alphabet = {
@@ -7,18 +12,18 @@ function practise() {
     "ㄩ": "M", "ㄙ": "N", "ㄟ": "O", "ㄣ": "P",
     "ㄆ": "Q", "ㄐ": "R", "ㄋ": "S", "ㄔ": "T",
     "一": "U", "ㄒ": "V", "ㄊ": "W", "ㄗ": "Y",
-	"ㄅ": "1", "ㄉ": "2", "ˇ ": "3", "ˋ ": "4",
-	"ㄓ": "5", "ˊ ": "6", "˙ ": "7", "ㄚ": "8",
-	"ㄞ": "9", "ㄢ": "0", "ㄦ": "-", "ㄤ": ";",
-	"ㄝ": ",", "ㄡ": ".", "ㄥ": "/"
+    "ㄅ": "1", "ㄉ": "2", "ˇ ": "3", "ˋ ": "4",
+    "ㄓ": "5", "ˊ ": "6", "˙ ": "7", "ㄚ": "8",
+    "ㄞ": "9", "ㄢ": "0", "ㄦ": "-", "ㄤ": ";",
+    "ㄝ": ",", "ㄡ": ".", "ㄥ": "/"
   }
   
-  alert('測試對鍵盤上注音了解程度，共100題');
+  alert('鍵盤注音了解程度測試，共100題');
   var score = 0;
   var examinations = 100;
   var examinationScore = 100 / examinations;
   
-  for(var i = 0; i < 10; i++) {
+  for(var i = 0; i < examinations; i++) {
     var keys = Object.keys(alphabet);
     var index = Math.floor(Math.random() * keys.length);
     var question = keys[index]
@@ -27,7 +32,7 @@ function practise() {
     var inputText = prompt(question);
     inputText = inputText.toUpperCase().trim();
     if(inputText == 'exit' || inputText == null) {
-      alert('半途而廢耶!');
+      alert('半途而廢耶!廢物!');
       break;
     } else if(inputText == answer) {
       alert('*** 答對: ' + question + ' = ' +  answer + ' ***');
@@ -36,10 +41,11 @@ function practise() {
       alert('答錯 是 ' + answer);
     } 
   }
+  
   alert('共計' + parseInt(score, 10) + '分');
 }
 
 practise();
 </script>
-
-<button onclick="practise();">再考一次</button>
+</body>
+</html>
